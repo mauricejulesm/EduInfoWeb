@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="description" content="EduInfo is a site that provides universities' information from all over the world."/>
+	<link rel="stylesheet" type="text/html" href="vendors/css/node_modules/normalize.css"/>
+	<link rel="stylesheet" type="text/css" href="vendors/css/grid.css"/>
+	<link rel="stylesheet" type="text/css" href="vendors/css/animate.css"/>
+	<link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css"/>
+	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'/>
+	<link rel="stylesheet" type="text/css" href="resources/css/styles.css"/>
+	<link rel="shortcut icon" href="resources/img/favicon.png" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="resources/css/queries.css"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<link href="https://unpkg.com/ionicons@4.2.5/dist/css/ionicons.min.css" rel="stylesheet"/>
+	<title>EduInfo.io</title>
+</head>
+<body>
+	
+	<!-- Header -->
+
+	<header>
+		<nav>
+			<div class="row">
+				<a href="#"><img src="resources/img/logo-white.png" alt="EduInfo Logo" class="logo"></a>
+				<a href="#"><img src="resources/img/logo-white.png" alt="EduInfo Logo" class="logo-black"></a>
+				<ul class="main-nav js--main-nav">  
+					<li><a href="#About">Introduction</a></li>
+					<li><a href="#countries">Universities</a></li>
+					<li><a href="#stats">Statistics</a></li>
+				</ul>
+				<a class="mobile-nav-icon js--nav-icon"><i class="icon ion-md-reorder"></i></a> 
+			</div>
+		</nav>
+		<div class="hero-text">
+			<div class="row">
+				<div class="col span-1-of-2 box">
+					<h1>Home of Tertiary Education Information<br>In One Place and Easy to Access.</h1>
+					<a class="btn btn-full js--scroll-to-start" href="#">Get Started</a>
+				</div>
+				<div class="col span-1-of-2 box">
+					<p>EduInfo.io is present in three countries;<br><span>India</span>,<span> Zimbabwe</span>, and <span>United Kingdom (UK)</span>.</p>
+					<a class="btn btn-full js--scroll-to-start" href="#stats">View Statistics</a>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	<!-- About EduInfo -->
+	
+	<section class="features js--features" id="About">
+		<div class="row">
+			<h2>About EduInfo.io</h2>
+			<p class="long-copy">
+				EduInfo.Io is a site that provides the users with information about the current provisions of tertiary leverl education in different countries. You will be able to view a list of universities with working hyperlinks to their respective websites, and well-presented statistics showing the number of students studying different subject areas in each country presented. Currently we covered three countries;<br><span>India</span>,<span> Zimbabwe</span>, and <span>United Kingdom (UK)</span>
+			</p>
+		</div>
+	</section>
+	
+	<!-- Universities Lists -->
+	
+	<section class="countries js--section-countries" id="countries">
+		<div class="row">
+			<h2>Lists of Univerisities of Each Country</h2>
+		</div>
+		<div class="row">
+			<!-- Countries' University -->
+			<div class="col span-2-of-2">
+				<div class="country-box js--wp-4">
+					<div class="col span-1-of-2"> 
+						<select id="country-selection-tables">
+							<option value="select">Select a country</option>
+							<option value="Zimbabwe">Zimbabwe</option>
+							<option value="India">India</option>
+							<option value="United Kingdom">United Kingdom</option>
+						</select>
+					</div>
+					<div class="col span-1-of-2">
+						<input type="text" id="userInput" placeholder="Search for a University.." title="Type in a name">
+					</div>
+					<div class="content hideContent"> 
+						<!-- Universities Main Table -->
+						<table class="uni-tables" id="uniTable">
+							<tr>
+								<th>Name</th>
+								<th>Website</th>
+							</tr>
+						</table>
+					</div>
+					<div class="show-more"> <!-- Button -->
+						<button class="btn">Show more</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Vizualizations-->
+
+	<section class="stats" id="stats">
+		<div class="row">
+			<h2>Statistics Presentations</h2>
+			<p> The following graphs &amp; charts contain percentages of students in tertiary education enrolled in programmes mentioned on their titles.</p>
+		</div>
+		<div class="row"> 
+			<select id="country-selection-charts">
+				<option value="select">Select a Country to See it's Statistics</option>
+				<option value="Zimbabwe">Zimbabwe</option>
+				<option value="India">India</option>
+				<option value="UK">United Kingdom</option>
+			</select>
+		</div>
+		<div class="row stats-row">
+			<!-- all programs -->
+			<div class="col span-3-of-3 box js--wp-1">
+				<h3 id="chart-title0"> Enrolment Accross all Programmes, both Sexes</h3>
+				<div class="remove" id="remove0">
+					<canvas class="stats-chart" id="chart0"></canvas>
+				</div>
+			</div>
+		</div>
+		<div class="row stats-row">
+			<!-- Agriculture -->
+			<div class="col span-1-of-3 box js--wp-2">
+				<h3 id="chart-title1">Agriculture Programmes</h3>
+				<div class="remove" id="remove1">
+					<canvas class="stats-chart" id="chart1"></canvas>
+				</div>
+			</div>
+			<!-- Education -->
+			<div class="col span-1-of-3 box js--wp-2">
+				<h3 id="chart-title2">Education Programmes</h3>
+				<div class="remove" id="remove2">
+					<canvas class="stats-chart" id="chart2"></canvas>
+				</div>
+			</div>
+			<!-- Engineering, manufacturing and contruction -->
+			<div class="col span-1-of-3 box js--wp-2">
+				<h3 id="chart-title3">Eng. Manufacturing&amp;Const.</h3>
+				<div class="remove" id="remove3">
+					<canvas class="stats-chart" id="chart3"></canvas>
+				</div>
+			</div>
+		</div>
+		<div class="row stats-row">
+			<!-- Health -->
+			<div class="col span-1-of-3 box js--wp-2">
+				<h3 id="chart-title4">Health and Welfare</h3>
+				<div class="remove" id="remove4">
+					<canvas class="stats-chart" id="chart4"></canvas>
+				</div>
+			</div>
+			<!-- Humanities and Arts programmes -->
+			<div class="col span-1-of-3 box js--wp-2">
+				<h3 id="chart-title5">Humanities and Arts</h3>
+				<div class="remove" id="remove5">
+					<canvas class="stats-chart" id="chart5"></canvas>
+				</div>
+			</div>
+			<!--  programmes in unspecified fields -->
+			<div class="col span-1-of-3 box js--wp-2">
+				<h3 id="chart-title6">Unspecified Fields</h3>
+				<div class="remove" id="remove6">
+					<canvas class="stats-chart" id="chart6"></canvas>
+				</div>
+			</div>
+		</div>
+		<div class="row stats-row">
+			<!--  Science programmes -->
+			<div class="col span-1-of-3 box js--wp-2">
+				<h3 id="chart-title7">Sciences Programmes</h3>
+				<div class="remove" id="remove7">
+					<canvas class="stats-chart" id="chart7"></canvas>
+				</div>
+			</div>
+			<!-- Services -->
+			<div class="col span-1-of-3 box js--wp-2">
+				<h3 id="chart-title8">Services Programmes</h3>
+				<div class="remove" id="remove8">
+					<canvas class="stats-chart" id="chart8"></canvas>
+				</div>
+			</div>
+			<!--  Social Sciences, Business and Law -->
+			<div class="col span-1-of-3 box js--wp-2">
+				<h3 id="chart-title9">Social Sciences, Business, Law</h3>
+				<div class="remove" id="remove9">
+					<canvas class="stats-chart" id="chart9"></canvas>
+				</div>
+			</div>
+		</div>
+
+		</div>
+	</section>
+
+	<!-- Back to the top button  -->
+	<button id="myBtn" title="Go to top">Up</button>
+	<!-- Footer section -->
+
+	<footer>
+		<div class="row">
+			<div class="col span-1-of-2">
+				<p>Copyright &copy; 2018 by EduInfo.io __ All rights reserved.</p>
+			</div>
+			<div class="col span-1-of-2">
+				<ul class="social-icons">
+					<li><h3>Find me On GitHub:&nbsp;&nbsp;</h3></li>
+					<li><a href="https://github.com/mauricejulesm/" target="blank"><i class="ion-logo-github"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+
+	<script src="resources/js/scripts.js"></script> 
+	<script src="vendors/js/jquery.waypoints.min.js"></script>
+	<script src="vendors/js/jquery-ui.min.js"></script>
+</body>
+</html>
